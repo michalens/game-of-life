@@ -77,9 +77,20 @@ function App() {
         }
       })}
     >{running ? 'stop' : 'start'}</button>
+
     <button onClick={() => {
       setGrid(generateEmptyGrid())
     }}>clear</button>
+
+    <button onClick={() => {
+      const rows = []
+      for (let i = 0; i < numRows; i++) {
+        rows.push(Array.from(Array(numCols), () => Math.random() > 0.7 ? 1 : 0))
+      }
+      setGrid(rows)
+    }}>
+      random
+    </button>
     <div style={{
       display: 'grid',
       gridTemplateColumns: `repeat(${numCols}, 20px)`
